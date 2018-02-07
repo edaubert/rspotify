@@ -61,6 +61,26 @@ module RSpotify
       User.oauth_put(@user.id, url, {})
     end
 
+    # Go back to the previous song on the user's currently active player
+    #
+    # @example
+    #           player = user.player
+    #           player.previous
+    def previous
+      url = "me/player/previous"
+      User.oauth_put(@user.id, url, {})
+    end
+
+    # Go to the next song on the user's currently active player
+    #
+    # @example
+    #           player = user.player
+    #           player.next
+    def next
+      url = 'me/player/next'
+      User.oauth_put(@user.id, url, {})
+    end
+
     def volume(percent)
       url = "me/player/volume?volume_percent=#{percent}"
 
